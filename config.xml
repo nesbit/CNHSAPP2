@@ -8,6 +8,7 @@
 
 <content src="index.html"/>
 
+<gap:plugin name=cordova-plugin-whitelist source=npm>
 
 <access origin="*"/>
 
