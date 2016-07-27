@@ -12,6 +12,8 @@
           content="default-src *;
                    style-src 'self' 'unsafe-inline' 'unsafe-eval';
                    script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+          
+</meta>
 
 <access origin="*"/>
 
