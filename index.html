@@ -1,3 +1,38 @@
+<!--
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Image to use:</p>
+<img id="scream" width="220" height="277" src="vowney.jpg" alt="The Scream">
+
+<p>Canvas:</p>
+<canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+window.onload = function() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img, 5 , 5);
+    var img = new Image();
+    img.onload = function() {
+    ctx.drawImage(img, 0, 50, 100, 900);
+    }
+    img.src = "caret.svg";
+    ctx.font = "30px Arial";
+    ctx.fillText("Hello World!",100 ,75);
+}
+</script>
+
+<p><strong>Note:</strong> The canvas tag is not supported in Internet
+Explorer 8 and earlier versions.</p>
+
+</body>
+</html>
+-->
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -48,8 +83,9 @@
 <!--
 <div id="" style="overflow:scroll; height:400px;">
 -->
-<a href="#" onclick="return getOutput();"> test </a>
+<a href="#" onclick="returnwasset();"> test </a>
 <div id="output">waiting for action</div>
+<p id="events"> </p>
 
 <div id="bottomnav">
     <ul>
@@ -65,21 +101,50 @@
 </div>
 </div>
 <script>
-/*
+
 // handles the click event for link 1, sends the query
-function getOutput() {
-   $.ajax({
-      url:'http://cors.io/?u=https://easyturnin.byethost11.com/index.php',
-      complete: function (response) {
-          $('#output').html(response.responseText);
-      },
-      error: function () {
-          $('#output').html('Bummer: there was an error!');
-      }
-  });
-  return false;
+//http://easyturnin.byethost11.com/hello.php
+//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
+//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
+        function returnwasset(){
+          /*
+  var data;
+var x = new XMLHttpRequest();
+x.open("GET", "http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss", true);
+x.onreadystatechange = function () {
+  if (x.readyState == 4 && x.status == 200)
+  {
+    var doc = x.responseXML;
+    // …
+  }
+};
+x.send(null);
+            */
+            var data;
+            var obje;
+            var events = "";
+            $.ajax({
+                type: "POST",
+                url: "http://easyturnin.byethost11.com/hello.php",
+                data: data,
+                 dataType:'jsonp',
+                success: function(data) {
+   //console.log(data['channel']); // apple
+   //obje = JSON.parse(data);
+   //console.log()
+   for (var item in data['channel']['item']) {
+     console.log(data['channel']['item'][item]['title']);
+     //var div = document.createElement('div');
+     events = events + data['channel']['item'][item]['title'] + " | " + data['channel']['item'][item]['description'] + "\n";
+     
+   }
+   document.getElementById("events").innerHTML = events;
 }
-*/
+            });
+            
+
+        }
+
 </script>
 </body>
 </html>
