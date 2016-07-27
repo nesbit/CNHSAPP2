@@ -1,0 +1,21 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
+
+<name>CNHS</name>
+
+<description>APP for CNHS.</description>
+
+<author email="support@phonegap.com" href="http://phonegap.com"> PhoneGap Team</author>
+
+<content src="index.html"/>
+
+<access origin="*"/>
+
+<platform name="android">
+<!-- a preference specific to android only here -->
+</platform>
+
+<feature name="Device">
+<param name="android-package"
+value="org.apache.cordova.device.Device"
+/>
+</feature>
