@@ -1,0 +1,136 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+<style>
+body {
+  background: #ECECEC;
+}
+#wrap{
+    width:100%;
+    height:100%;
+    background:white;
+    position:relative;
+}
+
+#bottomnav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#AA1D37;
+    position:absolute;
+    bottom:0px;
+
+}
+
+#uppernav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#AA1D37;
+    position:relative;
+    top:0px;
+
+}
+
+#bottomnav ul{
+    list-style:none;
+    
+    width:100%;
+}
+
+#bottomnav ul li{
+    width:20%;
+    float:left;
+    /*text-align:left;*/
+
+}
+div.scroll {
+    width: 100%;
+    height: 86%;
+    overflow: scroll;
+}
+.card {
+  /*background:#EEEEEE;*/
+  color: #0A100D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+}
+h1, h3 {
+  font-weight: normal;
+}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="uppernav">
+<h1 style="text-align:center; ">Alerts</h1>
+</div>
+<!--
+<div id="" style="overflow:scroll; height:400px;">
+-->
+<!--
+<a href="#" onclick="returnwasset();"> test </a>
+<div id="output">waiting for action</div>
+http://iconmonstr.com/warning-5/
+http://iconmonstr.com/calendar-4/
+-->
+<div class="scroll">
+<p id="alerts"> </p>
+</div>
+
+<div id="bottomnav">
+    <ul>
+        <li style="vertical-align:middle; text-align:center; " >
+          <img src="https://r.kyaa.sg/sqfbol.svg" height="90%" width="auto" style="display:inline-block; top:0px; margin-top:-20%;"/>
+        </li>
+        <li style="vertical-align:middle; text-align:center; " >
+          <img src="https://r.kyaa.sg/jlssku.svg" height="90%" width="auto" style="display:inline-block; top:0px; margin-top:-20%;"/>
+        </li>
+        <!--
+        <li>Alerts</li>
+        <li>ASB</li>
+        <li>4</li>
+        <li>5</li>
+        -->
+    </ul>
+</div>
+</div>
+<script>
+
+// handles the click event for link 1, sends the query
+//http://easyturnin.byethost11.com/hello.php
+//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
+//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
+      //  function returnwasset(){
+var data;
+var obje;
+var alerts = "";
+$.ajax({
+type: "GET",
+url: "https://spreadsheets.google.com/feeds/list/1QR7Vha2sW8nKjudbnkJMXAXkNPn8LULqq47Td8jrUKY/od6/public/values?alt=json",
+data: data,
+dataType:'jsonp',
+success: function(data) {
+console.log(data);
+
+                  //alert(obj["feed"]["entry"]["0"]["gsx$alert"]["$t"]);
+for (var item in data["feed"]["entry"]) {
+alerts = alerts +
+    "<div class='card' >" +
+     "<h1 style='margin:0'>" + data["feed"]["entry"][item]["gsx$alert"]["$t"] + "</h1>"
+     + "<h3 style='margin:0'>" +  data["feed"]["entry"][item]["gsx$description"]["$t"] + "</h3>" + "</div>"+
+     "<br />";
+}
+document.getElementById("alerts").innerHTML = alerts;
+
+}
+});
+
+
+</script>
+</body>
+</html>
