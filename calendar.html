@@ -82,7 +82,7 @@ position: fixed;
 bottom: 0;
 }
 
-ul.topbar li {text-align:center;}
+ul.topbar li {style="text-align:center;"}
 
 ul.topbar li a {
     display: block;
@@ -104,11 +104,12 @@ ul.topbar li.right {float: right;}
 <div id="wrap">
 
 <ul class="topbar" style="top:0; bottom: null;">
-    <li>
-        <h1 style="text-align:center; margin:0;">Alerts</h1>
+    <li style="text-align:center;">
+        <h1 style="text-align:center; margin:0;">Calendar</h1>
     </li>
 </ul>
-<br> <br>
+<br>
+<br>
 <div class="scroll">
 
 <p id="alerts"> </p>
@@ -151,32 +152,25 @@ ul.topbar li.right {float: right;}
 <script>
 // Javascript Goes Here
 
-// handles the click event for link 1, sends the query
-//http://easyturnin.byethost11.com/hello.php
-//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
-//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
-      //  function returnwasset(){
 var data;
 var obje;
-var alerts = "";
-$.ajax({
-type: "GET",
-url: "https://spreadsheets.google.com/feeds/list/1QR7Vha2sW8nKjudbnkJMXAXkNPn8LULqq47Td8jrUKY/od6/public/values?alt=json",
-data: data,
-dataType:'jsonp',
-success: function(data) {
-console.log(data);
+var events = "";
+    $.ajax({
+        type: "GET",
+        url: "http://easyturnin.byethost11.com/hello.php",
+        data: data,
+        dataType:'jsonp',
+        success: function(data) {
 
-                  //alert(obj["feed"]["entry"]["0"]["gsx$alert"]["$t"]);
-for (var item in data["feed"]["entry"]) {
-alerts = alerts +
-    "<div class='card' >" +
-     "<h1 style='margin:0'>" + data["feed"]["entry"][item]["gsx$alert"]["$t"] + "</h1>"
-     + "<h3 style='margin:0'>" +  data["feed"]["entry"][item]["gsx$description"]["$t"] + "</h3>" + "</div>"+
-     "<br />";
+    for (var item in data['channel']['item']) {
+        console.log(data['channel']['item'][item]['title']);
+        events = events +
+        "<h1>" + data['channel']['item'][item]['description'] + "</h1>"
+        + "<h3>" + data['channel']['item'][item]['title'] + "</h3>" +
+        "\n";
+     
 }
-document.getElementById("alerts").innerHTML = alerts;
-
+document.getElementById("alerts").innerHTML = events;
 }
 });
 

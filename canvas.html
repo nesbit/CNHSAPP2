@@ -1,0 +1,107 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+#wrap{
+    width:100%;
+    height:100%;
+    background:white;
+    position:relative;
+}
+
+#bottomnav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#F00;
+    position:absolute;
+    bottom:0px;
+
+}
+
+#uppernav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#F00;
+    position:relative;
+    top:0px;
+
+}
+
+#bottomnav ul{
+    list-style:none;
+    
+    width:100%;
+}
+
+#bottomnav ul li{
+    width:20%;
+    float:left;
+    /*text-align:left;*/
+
+}
+div.scroll {
+    width: 100%;
+    height: 86%;
+    overflow: scroll;
+}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="uppernav"> </div>
+<!--
+<div id="" style="overflow:scroll; height:400px;">
+-->
+<!--
+<a href="#" onclick="returnwasset();"> test </a>
+<div id="output">waiting for action</div>
+-->
+<div class="scroll">
+<p id="events"> </p>
+</div>
+
+<div id="bottomnav">
+    <ul>
+        <li>
+          Calendar
+          
+        </li>
+        <li>Alerts</li>
+        <li>ASB</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</div>
+<script>
+//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
+//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
+var data;
+var obje;
+var events = "";
+    $.ajax({
+        type: "GET",
+        url: "http://easyturnin.byethost11.com/hello.php",
+        data: data,
+        dataType:'jsonp',
+        success: function(data) {
+
+    for (var item in data['channel']['item']) {
+        console.log(data['channel']['item'][item]['title']);
+        events = events +
+        "<h1>" + data['channel']['item'][item]['description'] + "</h1>"
+        + "<h3>" + data['channel']['item'][item]['title'] + "</h3>" +
+        "\n";
+     
+}
+document.getElementById("events").innerHTML = events;
+}
+});
+
+
+</script>
+</body>
+</html>

@@ -105,10 +105,10 @@ ul.topbar li.right {float: right;}
 
 <ul class="topbar" style="top:0; bottom: null;">
     <li>
-        <h1 style="text-align:center; margin:0;">Alerts</h1>
+        <h1 style="text-align:center; margin:0;">News</h1>
     </li>
 </ul>
-<br> <br>
+
 <div class="scroll">
 
 <p id="alerts"> </p>
@@ -151,17 +151,12 @@ ul.topbar li.right {float: right;}
 <script>
 // Javascript Goes Here
 
-// handles the click event for link 1, sends the query
-//http://easyturnin.byethost11.com/hello.php
-//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
-//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
-      //  function returnwasset(){
 var data;
 var obje;
 var alerts = "";
 $.ajax({
 type: "GET",
-url: "https://spreadsheets.google.com/feeds/list/1QR7Vha2sW8nKjudbnkJMXAXkNPn8LULqq47Td8jrUKY/od6/public/values?alt=json",
+url: "https://spreadsheets.google.com/feeds/list/1Onr2QCYwmlO6w8niXa8JRH-n6FjqM65ajXJdJhq9u_g/od6/public/values?alt=json",
 data: data,
 dataType:'jsonp',
 success: function(data) {
@@ -169,11 +164,24 @@ console.log(data);
 
                   //alert(obj["feed"]["entry"]["0"]["gsx$alert"]["$t"]);
 for (var item in data["feed"]["entry"]) {
-alerts = alerts +
+  
+    obje = data["feed"]["entry"][item]["gsx$link"]["$t"].split("=").pop();
+    alerts = alerts +
     "<div class='card' >" +
-     "<h1 style='margin:0'>" + data["feed"]["entry"][item]["gsx$alert"]["$t"] + "</h1>"
-     + "<h3 style='margin:0'>" +  data["feed"]["entry"][item]["gsx$description"]["$t"] + "</h3>" + "</div>"+
-     "<br />";
+    
+    "<a href='" + data["feed"]["entry"][item]["gsx$link"]["$t"] + "' >" +
+    "<img width='100%' src='http://img.youtube.com/vi/"+ obje +"/0.jpg' />" +
+    "</a>" +
+    
+    "<h1 style='margin:0'>" + "News Ep. " + data["feed"]["entry"][item]["gsx$episodenumber"]["$t"] +
+    "</h1>" +
+    
+    "<h3 style='margin:0'>" +
+    data["feed"]["entry"][item]["gsx$date"]["$t"] +
+    "</h3>" +
+    
+    "</div>" +
+    "<br />";
 }
 document.getElementById("alerts").innerHTML = alerts;
 
@@ -183,3 +191,4 @@ document.getElementById("alerts").innerHTML = alerts;
 </script>
 </body>
 </html>
+
