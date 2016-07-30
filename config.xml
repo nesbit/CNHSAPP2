@@ -6,7 +6,7 @@
 
 <author email="support@phonegap.com" href="http://phonegap.com"> PhoneGap Team</author>
 
-<content src="index.html"/>
+<content src="demo.html"/>
 
 <plugin name="cordova-plugin-whitelist" source="npm" />
 
