@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<style>
+
+body {
+  background: #ECECEC;
+}
+#wrap{
+    width:100%;
+    height:100%;
+    background:white;
+    position:relative;
+}
+
+#bottomnav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#AA1D37;
+    position:absolute;
+    bottom:0px;
+
+}
+
+#uppernav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#AA1D37;
+    position:fixed;
+    top:0px;
+
+}
+
+#bottomnav ul{
+    list-style:none;
+    width:100%;
+}
+
+#bottomnav ul li{
+    width:20%;
+    display: inline;
+    /*float:left;*/
+    /*text-align:left;*/
+
+}
+div.scroll {
+    width: 100%;
+    height: 86%;
+    overflow: scroll;
+}
+.card {
+  /*background:#EEEEEE;*/
+  color: #0A100D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+}
+h1, h3 {
+  font-weight: normal;
+}
+
+body {margin: 0;}
+
+ul.topnav {
+width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #AA1D37;
+position: fixed;
+bottom: 0;
+}
+
+ul.topnav li {float: left; width: 20%;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="uppernav">
+<h1 style="text-align:center; margin:0;;">Alerts</h1>
+</div>
+<div class="scroll">
+<p id="alerts"> </p>
+<br>
+<br>
+</div>
+<ul class="topnav">
+  <li>
+   
+    <img src="cal.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/></li>
+    <a href="alerts.html">
+  <li><img src="alert.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/></li> </a>
+  <li><img src="news.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/></li>
+  <li class=""> <img src="https://r.kyaa.sg/jlssku.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
+<li class=""><img src="https://r.kyaa.sg/jlssku.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/></li>
+</ul>
+
+</div>
+
+<script>
+
+// handles the click event for link 1, sends the query
+//http://easyturnin.byethost11.com/hello.php
+//https://crossorigin.me/http://easyturnin.byethost11.com/hello.php
+//http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
+      //  function returnwasset(){
+// http://img.youtube.com/vi/FPks89DvOms/0.jpg
+var data;
+var obje;
+var alerts = "";
+$.ajax({
+type: "GET",
+url: "https://spreadsheets.google.com/feeds/list/1Onr2QCYwmlO6w8niXa8JRH-n6FjqM65ajXJdJhq9u_g/od6/public/values?alt=json",
+data: data,
+dataType:'jsonp',
+success: function(data) {
+console.log(data);
+
+                  //alert(obj["feed"]["entry"]["0"]["gsx$alert"]["$t"]);
+for (var item in data["feed"]["entry"]) {
+  
+  obje = data["feed"]["entry"][item]["gsx$link"]["$t"].split("=").pop();
+alerts = alerts +
+    "<div class='card' >" +
+    
+    "<a href='" + data["feed"]["entry"][item]["gsx$link"]["$t"] + "' >" +
+    "<img width='100%' src='http://img.youtube.com/vi/"+ obje +"/0.jpg' />" +
+    "</a>" +
+    
+    "<h1 style='margin:0'>" + "News Ep. " + data["feed"]["entry"][item]["gsx$episodenumber"]["$t"] +
+    "</h1>" +
+    
+    "<h3 style='margin:0'>" +
+    data["feed"]["entry"][item]["gsx$date"]["$t"] +
+    "</h3>" +
+    
+    "</div>" +
+    "<br />";
+}
+document.getElementById("alerts").innerHTML = alerts;
+
+}
+});
+
+
+</script>
+</body>
+</html>
+
