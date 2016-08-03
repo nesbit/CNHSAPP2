@@ -8,5 +8,6 @@ http://www.cardinalnewman.org/data/calendar/rsscache/page_602.rss
 <li>Parsing XML to Text via JS/JQuery</li>
 <li> Code Layout for the website </li>
 <li> Push notifications through phonegap </li>
+<li> Fix the calender </li>
 </ol>
 
