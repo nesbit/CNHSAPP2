@@ -11,6 +11,7 @@
 <plugin name="cordova-plugin-whitelist" source="npm" />
 
 <access origin="*" />
+<access origin="http://easyturnin.byethost.com" />
 
 <platform name="android">
 <!-- a preference specific to android only here -->
