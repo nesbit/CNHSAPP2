@@ -117,6 +117,7 @@ ul.topbar li.right {float: right;}
 
 <br>
 <br>
+<br>
 
 </div>
 
@@ -165,10 +166,13 @@ var events = "";
 
     for (var item in data['channel']['item']) {
         console.log(data['channel']['item'][item]['title']);
+        
         events = events +
-        "<h1>" + data['channel']['item'][item]['description'] + "</h1>"
-        + "<h3>" + data['channel']['item'][item]['title'] + "</h3>" +
-        "\n";
+            "<div class='card' >" +
+     "<h1 style='margin:0'>" + data['channel']['item'][item]['description'] + "</h1>"
+     + "<h3 style='margin:0'>" +  data['channel']['item'][item]['title'] + "</h3>" + "</div>"+
+     "<br />";
+
      
 }
 document.getElementById("alerts").innerHTML = events;
