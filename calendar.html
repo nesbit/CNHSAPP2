@@ -181,5 +181,41 @@ document.getElementById("alerts").innerHTML = events;
 });
 
 </script>
+
+<script type="text/javascript">
+document.addEventListener("deviceready",onDeviceReady,false);
+function onDeviceReady(){
+//document.write("Test!!!");
+console.log("Device Ready");
+var push = PushNotification.init({ "android": {"senderID": "244192342021"}} );
+var dada;
+/*
+var push = PushNotification.init({ "android": {"senderID": "244192342021"},
+"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+*/
+push.on('registration', function(data) {
+document.write(JSON.stringify(data));
+dada = JSON.parse(data);
+console.log(dada.registrationId);
+$("#gcm_id").html(dada.registrationId);
+//document.write(data[registrationId]);
+});
+push.on('notification', function(data) {
+console.log(data.message);
+alert(data.title+" Message: " +data.message);
+//document.write("Alert: "+ JSON.stringify(data));
+// data.title,
+// data.count,
+// data.sound,
+// data.image,
+// data.additionalData
+});
+push.on('error', function(e) {
+console.log(e.message);
+document.write("Error: " + e.message);
+});
+}
+</script>
+
 </body>
 </html>
