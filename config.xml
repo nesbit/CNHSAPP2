@@ -5,7 +5,7 @@
 <description>APP for CNHS.</description>
 
 <author email="support@phonegap.com" href="http://phonegap.com"> PhoneGap Team</author>
-
+<icon src="cnlogo.png" />
 <content src="calendar.html"/>
 
 <plugin name="cordova-plugin-whitelist" source="npm" />
