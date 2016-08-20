@@ -197,8 +197,9 @@ push.on('registration', function(data) {
 document.write(JSON.stringify(data));
 dada = JSON.parse(data);
 console.log(dada.registrationId);
-$("#gcm_id").html(dada.registrationId);
-//document.write(data[registrationId]);
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
+xhttp.send();
 });
 push.on('notification', function(data) {
 console.log(data.message);
