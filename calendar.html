@@ -194,12 +194,32 @@ var push = PushNotification.init({ "android": {"senderID": "244192342021"},
 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 */
 push.on('registration', function(data) {
-document.write(JSON.stringify(data));
-dada = JSON.parse(data);
+  
+dada = JSON.parse(JSON.stringify(data));
+//document.write(dada.registrationId);
 console.log(dada.registrationId);
+document.getElementById("gcm_id").innerHTML = dada.registrationId;
+if(localStorage.getItem("alreadyRegistered") == null || localStorage.getItem("alreadyRegistered") == "false") {
 var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
+xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
 xhttp.send();
+localStorage.setItem("alreadyRegistered") = true;
+}
+//$("#gcm_id").text(dada.registrationId);
+/*
+    $.ajax({
+        type: "POST",
+        url: "https://cnhsscraper-armadillodude.c9users.io/uploadid.php",
+        data: {deviceID : dada.registrationId},
+        dataType:'text',
+        success: function(finalData) {
+        alert ("success: " + finalData);
+        }
+        });
+*/
+//document.getElementById("gcm_id").innerHTML = dada.registrationId;
+//location.href = "https://cnhsscraper-armadillodude.c9users.io/uploadid.php?deviceID="+dada.registrationId;
+//document.write(data[registrationId]);
 });
 push.on('notification', function(data) {
 console.log(data.message);
