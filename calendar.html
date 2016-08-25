@@ -18,8 +18,9 @@ var push = PushNotification.init({ "android": {"senderID": "244192342021"},
 "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 */
 push.on('registration', function(data) {
-  
+
 dada = JSON.parse(JSON.stringify(data));
+alert(dada.registrationId);
 //document.write(dada.registrationId);
 console.log(dada.registrationId);
 //document.getElementById("gcm_id").innerHTML = dada.registrationId;
