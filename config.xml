@@ -13,7 +13,7 @@
     <param name="SENDER_ID" value="244192342021" />
 </plugin>
 <access origin="*" />
-
+<access origin="https://cnhsscraper-armadillodude.c9users.io" />
 <platform name="android">
 <!-- a preference specific to android only here -->
 </platform>
