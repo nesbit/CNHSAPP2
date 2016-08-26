@@ -20,7 +20,7 @@ var push = PushNotification.init({ "android": {"senderID": "244192342021"},
 push.on('registration', function(data) {
 
 dada = JSON.parse(JSON.stringify(data));
-alert(dada.registrationId);
+//alert(dada.registrationId);
 //document.write(dada.registrationId);
 console.log(dada.registrationId);
 //document.getElementById("gcm_id").innerHTML = dada.registrationId;
