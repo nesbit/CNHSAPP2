@@ -2,9 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script><style><style>
 <style>
-
 body {
   background: #ECECEC;
 }
@@ -14,7 +18,6 @@ body {
     background:white;
     position:relative;
 }
-
 #uppernav{
     width:100%;
     height:7%;
@@ -22,9 +25,7 @@ body {
     background:#AA1D37;
     position:fixed;
     top:0px;
-
 }
-
 div.scroll {
     width: 100%;
     height: 86%;
@@ -39,9 +40,7 @@ div.scroll {
 h1, h3 {
   font-weight: normal;
 }
-
 body {margin: 0;}
-
 ul.navbar {
 width: 100%;
     list-style-type: none;
@@ -52,9 +51,7 @@ width: 100%;
 position: fixed;
 bottom: 0;
 }
-
 ul.navbar li {float: left; width: 20%;}
-
 ul.navbar li a {
     display: block;
     color: white;
@@ -62,28 +59,24 @@ ul.navbar li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-
 ul.navbar li a:hover:not(.active) {background-color: #111;}
-
 ul.navbar li a.active {background-color: #4CAF50;}
-
 ul.navbar li.right {float: right;}
-
+/* TOP BAR */
 /* TOP BAR */
 ul.topbar {
 width: 100%;
-height: 67px;
+height: 56px;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #AA1D37;
+    background-color: #b71c1c;
+    color:white;
 position: fixed;
-bottom: 0;
+z-index:1;
 }
-
-ul.topbar li {text-align:center;}
-
+ul.topbar li {style="text-align:center;"}
 ul.topbar li a {
     display: block;
     color: white;
@@ -91,13 +84,13 @@ ul.topbar li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-
 ul.topbar li a:hover:not(.active) {background-color: #111;}
-
-ul.topbar li a.active {background-color: #4CAF50;}
-
+ul.topbar li a.active {background-color: #b71c1c;}
 ul.topbar li.right {float: right;}
 
+nav i {
+line-height:40px;
+}
 </style>
 </head>
 <body>
@@ -117,7 +110,7 @@ ul.topbar li.right {float: right;}
 <br>
 <br>
 <!--Main body-->
-<h3 style = "font-family:verdana; text-align:center";>
+<h6 style = "font-family:verdana; text-align:center";>
   <a href="iconsrc.html">
     <b>
       Icon Image Sources
@@ -135,38 +128,47 @@ ul.topbar li.right {float: right;}
   <br>
   sbucher17@cardinalnewman.org
   
-</h3>
+</h6>
 
 
 </div>
 
-<ul class="navbar">
-    <a href="calendar.html">
-    <li>
-        <img src="cal.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
-    </li>
-    </a>
-    <a href="alerts.html">
-    <li>
-        <img src="alert.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
-    </li>
-    </a>
-    <a href="news.html">
-    <li>
-        <img src="news.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
-    </li>
-    </a>
-    <a href="asb.html">
-    <li>
-        <img src="asb.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
-    </li>
-    </a>
-    <a href="settings.html">
-    <li>
-        <img src="settings.svg" width="80%" style="padding-left: 10%; padding-top: 10%;"/>
-    </li>
-    </a>
-</ul>
+<nav style="position: fixed; bottom: 0px;">
+    <div class="nav-wrapper red darken-4">
+      <ul class="center-align row" style="line-height:28px;">
+        <li style="width:20%; text-align: center;">
+          <a href="calendar.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">date_range</i>
+            <span> <p style="text-align:left; margin:0; padding:0;"> Events </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="alerts.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">error_outline</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> Alerts </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="news.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">ondemand_video</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> News </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="asb.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">school</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> ASB </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="settings.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">settings</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> Option </p></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 </div>
 
