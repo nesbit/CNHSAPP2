@@ -141,6 +141,23 @@ ul.topbar li a {
 ul.topbar li a:hover:not(.active) {background-color: #111;}
 ul.topbar li a.active {background-color: #b71c1c;}
 ul.topbar li.right {float: right;}
+
+/* SPINNER */
+.spinner {
+  /*margin: 50px;*/
+  margin:auto;
+  height: 56px;
+  width: 56px;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #2196f3;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
 </style>
 </head>
 <body>
@@ -156,7 +173,7 @@ ul.topbar li.right {float: right;}
 <br>
 <br>
 <div class="scroll">
-
+<div class="spinner" id="spinner"></div>
 <p id="alerts"> </p>
 
 <br>
@@ -220,12 +237,14 @@ var events = "";
         
         events = events +
             "<div class='card' >" +
-     "<h1 style='margin:0'>" + data['channel']['item'][item]['description'] + "</h1>"
-     + "<h3 style='margin:0'>" +  data['channel']['item'][item]['title'] + "</h3>" + "</div>"+
+     "<h3 style='margin:0'>" + data['channel']['item'][item]['description'] + "</h3>"
+     + "<h5 style='margin:0'>" +  data['channel']['item'][item]['title'] + "</h5>" + "</div>"+
      "<br />";
      
 }
 document.getElementById("alerts").innerHTML = events;
+var elem = document.getElementById("spinner");
+elem.parentNode.removeChild(elem);
 }
 });
 </script>
