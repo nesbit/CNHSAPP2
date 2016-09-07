@@ -17,13 +17,11 @@
 <platform name="android">
 <!-- a preference specific to android only here -->
 </platform>
-
+<platform name="ios" ></platform>
 <feature name="Device">
 <param name="android-package"
 value="org.apache.cordova.device.Device"
 />
-
-<platform name="ios" ></platform>
 
 </feature>
 </widget>
