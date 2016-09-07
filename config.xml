@@ -23,6 +23,7 @@
 value="org.apache.cordova.device.Device"
 />
 
-<platform name="ios" />
+<platform name="ios" ></platform>
+
 </feature>
 </widget>
