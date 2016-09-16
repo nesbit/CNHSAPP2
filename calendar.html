@@ -28,8 +28,14 @@ dada = JSON.parse(JSON.stringify(data));
 console.log(dada.registrationId);
 //document.getElementById("gcm_id").innerHTML = dada.registrationId;
 var xhttp = new XMLHttpRequest();
-xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
-xhttp.send();
+if(device.platform == "Android") {
+      xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
+      xhttp.send();
+}
+if (device.platform == "IOS") {
+      xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/ios"+dada.registrationId,true);
+      xhttp.send();  
+}
 //$("#gcm_id").text(dada.registrationId);
 /*
     $.ajax({
