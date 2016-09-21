@@ -5,7 +5,7 @@
 <description>APP for CNHS.</description>
 
 <author email="support@phonegap.com" href="http://phonegap.com"> PhoneGap Team</author>
-<icon src="icon (1).png.png" />
+<icon src="icon (1).png" />
 <content src="calendar.html"/>
 
 <plugin name="cordova-plugin-whitelist" source="npm" />
@@ -16,7 +16,7 @@
 <plugin name="cordova-plugin-device" source="npm" />
 
 <access origin="*" />
-<access origin="https://cnhsscraper-armadillodude.c9users.io" />
+<access origin="https://secure-island-66271.herokuapp.com" />
 <platform name="android">
 <!-- a preference specific to android only here -->
 </platform>
