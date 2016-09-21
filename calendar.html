@@ -238,13 +238,13 @@ var events = "";
         data: data,
         dataType:'jsonp',
         success: function(data) {
-    for (var item in data['channel']['item']) {
-        console.log(data['channel']['item'][item]['title']);
+    for (var item in data['rss']['channel']['item']) {
+        console.log(data['rss']['channel']['item'][item]['title']);
         
         events = events +
             "<div class='card' >" +
-     "<h3 style='margin:0'>" + data['channel']['item'][item]['description'] + "</h3>"
-     + "<h5 style='margin:0'>" +  data['channel']['item'][item]['title'] + "</h5>" + "</div>"+
+     "<h3 style='margin:0'>" + data['rss']['channel']['item'][item]['description'] + "</h3>"
+     + "<h5 style='margin:0'>" +  data['rss']['channel']['item'][item]['title'] + "</h5>" + "</div>"+
      "<br />";
      
 }
