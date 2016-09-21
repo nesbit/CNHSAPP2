@@ -16,7 +16,7 @@
 <plugin name="cordova-plugin-device" source="npm" />
 
 <access origin="*" />
-<access origin="https://secure-island-66271.herokuapp.com" />
+<access origin="https://secure-island-66271.herokuapp.com/calendar/" />
 <platform name="android">
     <preference name="orientation" value="portrait" />
 <!-- a preference specific to android only here -->
