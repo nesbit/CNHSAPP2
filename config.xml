@@ -18,9 +18,12 @@
 <access origin="*" />
 <access origin="https://secure-island-66271.herokuapp.com" />
 <platform name="android">
+    <preference name="orientation" value="portrait" />
 <!-- a preference specific to android only here -->
 </platform>
-<platform name="ios" ></platform>
+<platform name="ios" >
+    <preference name="orientation" value="portrait" />
+</platform>
 <feature name="Device">
 <param name="android-package"
 value="org.apache.cordova.device.Device"
