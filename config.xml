@@ -2,9 +2,9 @@
 
 <name>CNHS</name>
 
-<description>APP for CNHS.</description>
+<description> An app to alert students of notifications at Cardinal Newman High School in Santa Rosa, CA. </description>
 
-<author email="support@phonegap.com" href="http://phonegap.com"> PhoneGap Team</author>
+<author email="ethandburrell@gmail.com" href="http://cardinalnewman.org"> Ethan Burrell + Steven Bucher </author>
 <icon src="icon (1).png" />
 <content src="calendar.html"/>
 
@@ -26,8 +26,7 @@
 </platform>
 <feature name="Device">
 <param name="android-package"
-value="org.apache.cordova.device.Device"
-/>
+value="org.apache.cordova.device.Device"/>
 
 </feature>
 </widget>
