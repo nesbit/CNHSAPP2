@@ -29,11 +29,11 @@ console.log(dada.registrationId);
 //document.getElementById("gcm_id").innerHTML = dada.registrationId;
 var xhttp = new XMLHttpRequest();
 if(device.platform == "Android") {
-      xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/"+dada.registrationId,true);
+      xhttp.open("GET","https://secure-island-66271.herokuapp.com/android/"+dada.registrationId,true);
       xhttp.send();
 }
 if (device.platform == "iOS") {
-      xhttp.open("GET","https://gcmforcnhsapp-armadillodude.c9users.io:8081/ios/"+dada.registrationId,true);
+      xhttp.open("GET","https://secure-island-66271.herokuapp.com/ios/"+dada.registrationId,true);
       xhttp.send();  
 }
 //$("#gcm_id").text(dada.registrationId);
