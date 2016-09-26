@@ -5,12 +5,6 @@
 <description> An app to alert students of notifications at Cardinal Newman High School in Santa Rosa, CA. </description>
 
 <author email="ethandburrell@gmail.com" href="http://cardinalnewman.org"> Ethan Burrell + Steven Bucher </author>
-
-    <icon src="icon.png" />
-    <icon src="res/icon/ios/Icon-Small-50.png"            platform="ios"        width="57" height="57" />
-    <icon src="res/icon/ios/Icon-72.png"            platform="ios"        width="72" height="72" />
-    <icon src="res/icon/ios/Icon-Small-50@2x.png"         platform="ios"        width="114" height="114" />
-    <icon src="res/icon/ios/icon-72@2x.png"         platform="ios"        width="144" height="144" />
     
 <content src="calendar.html"/>
 
@@ -25,10 +19,15 @@
 <access origin="https://secure-island-66271.herokuapp.com/calendar/" />
 <platform name="android">
     <preference name="orientation" value="portrait" />
+    <icon src="icon.png" />
 <!-- a preference specific to android only here -->
 </platform>
 <platform name="ios" >
     <preference name="orientation" value="portrait" />
+<icon src="res/icon/ios/Icon-Small-50.png"            platform="ios"        width="57" height="57" />
+    <icon src="res/icon/ios/Icon-72.png"            platform="ios"        width="72" height="72" />
+    <icon src="res/icon/ios/Icon-Small-50@2x.png"         platform="ios"        width="114" height="114" />
+    <icon src="res/icon/ios/icon-72@2x.png"         platform="ios"        width="144" height="144" />
 </platform>
 <feature name="Device">
 <param name="android-package"
