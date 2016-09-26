@@ -5,7 +5,7 @@
 <description> An app to alert students of notifications at Cardinal Newman High School in Santa Rosa, CA. </description>
 
 <author email="ethandburrell@gmail.com" href="http://cardinalnewman.org"> Ethan Burrell + Steven Bucher </author>
-<icon src="icon (1).png" />
+<icon src="icon.png" />
 <content src="calendar.html"/>
 
 <plugin name="cordova-plugin-whitelist" source="npm" />
