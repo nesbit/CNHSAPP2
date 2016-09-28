@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript">
+document.addEventListener("deviceready",onDeviceReady,false);
+function onDeviceReady(){
+//document.write("Test!!!");
+console.log("Device Ready");
+var push = PushNotification.init({ "android": {"senderID": "244192342021"}} );
+var dada;
+/*
+var push = PushNotification.init({ "android": {"senderID": "244192342021"},
+"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+*/
+push.on('registration', function(data) {
+dada = JSON.parse(JSON.stringify(data));
+//alert(dada.registrationId);
+//document.write(dada.registrationId);
+console.log(dada.registrationId);
+//document.getElementById("gcm_id").innerHTML = dada.registrationId;
+var xhttp = new XMLHttpRequest();
+if(device.platform == "Android") {
+      xhttp.open("GET","https://secure-island-66271.herokuapp.com/android/"+dada.registrationId,true);
+      xhttp.send();
+}
+if (device.platform == "iOS") {
+      xhttp.open("GET","https://secure-island-66271.herokuapp.com/ios/"+dada.registrationId,true);
+      xhttp.send();  
+}
+//$("#gcm_id").text(dada.registrationId);
+/*
+    $.ajax({
+        type: "POST",
+        url: "https://cnhsscraper-armadillodude.c9users.io/uploadid.php",
+        data: {deviceID : dada.registrationId},
+        dataType:'text',
+        success: function(finalData) {
+        alert ("success: " + finalData);
+        }
+        });
+*/
+//document.getElementById("gcm_id").innerHTML = dada.registrationId;
+//location.href = "https://cnhsscraper-armadillodude.c9users.io/uploadid.php?deviceID="+dada.registrationId;
+//document.write(data[registrationId]);
+});
+push.on('notification', function(data) {
+console.log(data.message);
+alert(data.title+" Message: " +data.message);
+//document.write("Alert: "+ JSON.stringify(data));
+// data.title,
+// data.count,
+// data.sound,
+// data.image,
+// data.additionalData
+});
+push.on('error', function(e) {
+console.log(e.message);
+document.write("Error: " + e.message);
+});
+}
+</script>
+
+<style>
+body {
+  background: #ECECEC;
+}
+#wrap{
+    width:100%;
+    height:100%;
+    background:white;
+    position:relative;
+}
+#uppernav{
+    width:100%;
+    height:7%;
+    /* or 50px */
+    background:#AA1D37;
+    position:fixed;
+    top:0px;
+}
+div.scroll {
+    width: 100%;
+    height: 86%;
+    overflow: scroll;
+}
+.card {
+  /*background:#EEEEEE;*/
+  color: #0A100D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+}
+h1, h3 {
+  font-weight: normal;
+}
+body {margin: 0;}
+ul.navbar {
+width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #AA1D37;
+position: fixed;
+bottom: 0;
+}
+ul.navbar li {float: left; width: 20%;}
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ul.navbar li a:hover:not(.active) {background-color: #111;}
+ul.navbar li a.active {background-color: #4CAF50;}
+ul.navbar li.right {float: right;}
+/* TopBar  */
+ul.topbar {
+width: 100%;
+height: 56px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #b71c1c;
+    color:white;
+position: fixed;
+z-index:1;
+}
+ul.topbar li {style="text-align:center;"}
+ul.topbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ul.topbar li a:hover:not(.active) {background-color: #111;}
+ul.topbar li a.active {background-color: #b71c1c;}
+ul.topbar li.right {float: right;}
+/* SPINNER */
+.spinner {
+  /*margin: 50px;*/
+  margin:auto;
+  height: 56px;
+  width: 56px;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #2196f3;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+
+<ul class="topbar" style="top:0; bottom: null; position: fixed;">
+    <li style="text-align:center;">
+        <h2 style="text-align:center; margin:0; line-height:56px;">Calendar</h2>
+    </li>
+</ul>
+
+<br>
+<br>
+<br>
+<div class="scroll">
+<div class="spinner" id="spinner"></div>
+<p id="alerts"> </p>
+
+<br>
+<br>
+<br>
+
+</div>
+
+<nav style="position: fixed; bottom: 0px;">
+    <div class="nav-wrapper red darken-4">
+      <ul class="center-align row" style="line-height:28px;">
+        <li style="width:20%; text-align: center;">
+          <a href="calendar.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">date_range</i>
+            <span> <p style="text-align:center; margin:0; padding:0;"> Events </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="alerts.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">error_outline</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> Alerts </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="news.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">ondemand_video</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> News </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="asb.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">school</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> ASB </p></span>
+          </a>
+        </li>
+        <li style="width:20%; text-align: center;">
+          <a href="settings.html">
+            <i class="material-icons" style="margin:0; line-height:40px; height: 28px;">settings</i>
+            <span> <p style="text-align:center; width:100%; padding:0; margin:0;"> Option </p></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+
+<script>
+// Javascript Goes Here
+var data;
+var obje;
+var events = "";
+    $.ajax({
+        type: "GET",
+        url: "https://secure-island-66271.herokuapp.com/calendar/",
+        data: data,
+        dataType:'jsonp',
+        success: function(data) {
+    for (var item in data['rss']['channel']['item']) {
+        console.log(data['rss']['channel']['item'][item]['title']);
+        
+        events = events +
+            "<div class='card' >" +
+     "<h3 style='margin:0'>" + data['rss']['channel']['item'][item]['description'] + "</h3>"
+     + "<h5 style='margin:0'>" +  data['rss']['channel']['item'][item]['title'] + "</h5>" + "</div>"+
+     "<br />";
+     
+}
+document.getElementById("alerts").innerHTML = events;
+var elem = document.getElementById("spinner");
+elem.parentNode.removeChild(elem);
+}
+});
+</script>
+
+</body>
+</html>
