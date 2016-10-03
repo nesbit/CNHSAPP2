@@ -40,11 +40,11 @@
 <access origin="*" />
         
 <access origin="https://secure-island-66271.herokuapp.com/calendar/" />
-        
+<!--     
 <platform name="android">
     <preference name="orientation" value="portrait" />
 </platform>
-        
+-->   
         
 <platform name="ios" >
     <preference name="orientation" value="portrait" />
@@ -60,9 +60,11 @@
     <icon src="res/icon/ios/icon-83.5@2x.png" width="167" height="167" />
 
 </platform>
+        <!--
 <feature name="Device">
 <param name="android-package"
 value="org.apache.cordova.device.Device"/>
 
 </feature>
+-->
 </widget>
